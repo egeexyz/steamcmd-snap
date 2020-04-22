@@ -1,11 +1,12 @@
 name: steamcmd
-version: 1.0.0
-summary: The steamcmd
+version: git
+summary: Command-line interface for Steam
 description: |
-  Basically yes
+  The Steam Console Client or SteamCMD is acommand-line version of the Steam client.
+  Its primary use is to install and update various dedicated servers available on Steamusing a command-line interface. 
 base: core18
 confinement: devmode
-grade: stable
+grade: devel
 
 apps:
   steamcmd:
