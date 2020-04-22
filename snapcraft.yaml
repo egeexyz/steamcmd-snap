@@ -1,0 +1,29 @@
+name: steamcmd
+version: 1.0.0
+summary: The steamcmd
+description: |
+  Basically yes
+base: core18
+confinement: devmode
+grade: stable
+
+apps:
+  steamcmd:
+    command: steamcmd.sh
+
+parts:
+  steamcmd:
+    plugin: dump
+    source: .
+    build-packages:
+      - lib32gcc1
+    # This override is needed to bootstrap the initial "update" steamcmd does at first run
+    override-prime: |
+      snapcraftctl prime
+      /root/parts/steamcmd/install/steamcmd.sh validate +quit 
+    stage:
+      - steamcmd.sh
+      - linux32/
+    prime:
+      - steamcmd.sh
+      - linux32/
